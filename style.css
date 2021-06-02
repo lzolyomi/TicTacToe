@@ -1,0 +1,70 @@
+body{
+    font-family: 'Shadows Into Light', cursive;
+    background-image: linear-gradient(to right, #3b5fff 0%, #ec4c4c 100%);
+}
+
+.title{
+    text-align: center;
+    font-size: 70px;
+}
+
+.subtitle{
+    text-align: center;
+    font-size: 30px;
+}
+
+.grid-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button{
+    background-color: #3954df;
+    font-size: 30px;
+    padding: 20px;
+    border: 5px black solid;
+    border-radius: 20px;
+    font-family: 'Shadows Into Light', cursive;
+    transition: 0.5s;
+}
+
+.button:hover{
+    background-color: #f7afaf;
+    border: 5px rgb(252, 72, 72) solid;
+}
+
+#board{
+    margin:50px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.square{
+    width: 110px;
+    height: 110px;
+    background-color: azure;
+    border: black 2px solid;
+    border-radius: 40px;
+    animation: slide  1s ease-out;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
+    transition: 0.5s;
+}
+
+.square:hover{
+    background-color: rgb(151, 161, 161);
+}
+
+@keyframes slide{
+    from {width:0px; height:0px;}
+    to {width:110px; height:110px;}
+}
+
+#game-info{
+    padding: 12px;
+    font-size: 34px;
+    font-weight: bold;
+}
