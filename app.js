@@ -32,14 +32,16 @@ gameBoard.addEventListener('click', function(event){
     if(event.target.nodeName == 'BUTTON'){
         let press = event.target;
         if (press.value == ""){
-            console.log(event.target.id);
             currentMove = event.target.id.split("-")[1]
             boardArray[currentMove].makeMove(currentPlayer);
             changePlayer(currentPlayer);
             if (assessMove(boardArray, currentMove) == true){
                 changePlayer(currentPlayer); // to switch to winning player
                 gameInfo.innerHTML = "Congratulations, " + currentPlayer + " won!";
-            };
+            } else if(isFull(boardArray)){
+                gameInfo.innerHTML = "Oops, the board is filled, restart the game"
+            }
+            
         };
     };
 });
@@ -118,4 +120,14 @@ function checkDiagonal(board, index){
             return(true);
         } else{return(false);};
     } else{return(false);};
+};
+
+function isFull(board){
+    let full = true;
+    for(i = 0; i < board.length; i++){
+        if (typeof board[i].value == 'number'){
+            full = false;
+        };
+    };
+    return(full);
 };
