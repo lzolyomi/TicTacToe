@@ -31,17 +31,16 @@ gameBoard.addEventListener('click', function(event){
     // logs moves
     if(event.target.nodeName == 'BUTTON'){
         let press = event.target;
-        if (press.value == ""){
+        if (isFull(boardArray) == false){ // press.value == ""
             currentMove = event.target.id.split("-")[1]
             boardArray[currentMove].makeMove(currentPlayer);
             changePlayer(currentPlayer);
             if (assessMove(boardArray, currentMove) == true){
                 changePlayer(currentPlayer); // to switch to winning player
                 gameInfo.innerHTML = "Congratulations, " + currentPlayer + " won!";
-            } else if(isFull(boardArray)){
-                gameInfo.innerHTML = "Oops, the board is filled, restart the game"
-            }
-            
+            };
+        } else if(isFull(boardArray)==true){
+            gameInfo.innerHTML = "Oops, the board is filled, restart the game"
         };
     };
 });
